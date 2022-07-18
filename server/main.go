@@ -4,6 +4,7 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
+    // "github.com/rs/cors"
 )
 
 // 'patient' represents data about a patient.
@@ -18,7 +19,7 @@ type patient struct {
     AppointmentTime string `json:"appointmentTime"`
 }
 
-// albums slice to seed record album data.
+// patients slice to seed record patient data.
 var patients = []patient{
     {
         ID: "1", 
@@ -43,6 +44,12 @@ func main() {
 
 // getPatients responds with the list of all patients as JSON.
 func getPatients(c *gin.Context) {
+
+    c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+    c.Writer.Header().Set("Access-Control-Allow-Methods", "GET")
+
     c.IndentedJSON(http.StatusOK, patients)
 }
 
