@@ -4,7 +4,7 @@ import (
     "net/http"
 
     "github.com/gin-gonic/gin"
-    // "github.com/rs/cors"
+    cors "github.com/rs/cors/wrapper/gin"
 )
 
 // 'patient' represents data about a patient.
@@ -31,10 +31,26 @@ var patients = []patient{
         Photo: "https://i.insider.com/5e1f79f3b787a606761b4617?width=600&format=jpeg&auto=webp",
         AppointmentTime: "08/31/2022",
     },
+    {
+        ID: "2", 
+        Name: "Janice Ann Sample", 
+        DateOfBirth: "08/04/1975", 
+        PhoneNumber: "(555) 555-5555", 
+        Email: "janice.sample@gmail.com",
+        Address: "123 Main St, Apt. 1, Harrisburg, PA 17101",
+        Photo: "https://whyy.org/wp-content/uploads/2020/05/realid-1-768x432.jpg",
+        AppointmentTime: "09/06/2022",
+    },
 }
 
 func main() {
     router := gin.Default()
+
+    router.Use(cors.Default())
+
+    router.GET("/", func(context *gin.Context) {
+        context.JSON(http.StatusOK, gin.H{"hello": "world"})
+    })
     router.GET("/patients", getPatients)
     router.GET("/patients/:id", getPatientByID)
     router.POST("/patients", postPatients)
@@ -44,12 +60,6 @@ func main() {
 
 // getPatients responds with the list of all patients as JSON.
 func getPatients(c *gin.Context) {
-
-    c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    c.Writer.Header().Set("Access-Control-Allow-Methods", "GET")
-
     c.IndentedJSON(http.StatusOK, patients)
 }
 
