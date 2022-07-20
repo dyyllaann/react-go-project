@@ -45,16 +45,12 @@ var patients = []patient{
 
 func main() {
     router := gin.Default()
-
     router.Use(cors.Default())
 
-    router.GET("/", func(context *gin.Context) {
-        context.JSON(http.StatusOK, gin.H{"hello": "world"})
-    })
+    router.GET("/upload")
     router.GET("/patients", getPatients)
     router.GET("/patients/:id", getPatientByID)
     router.POST("/patients", postPatients)
-
     router.Run("localhost:8080")
 }
 
