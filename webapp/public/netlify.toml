@@ -1,0 +1,12 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Origin: "https://62d85d4349eccb04bcb6234e--splendid-dango-2fe042.netlify.app"
+    Access-Control-Allow-Origin: "https://main--splendid-dango-2fe042.netlify.app/"

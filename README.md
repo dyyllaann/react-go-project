@@ -3,11 +3,38 @@
 
 ## Overview
 
-Even though I recently created a very similar CRUD application using Express/Node as the backend, I decided to challenge myself by learning enough Go
-to complete the project. Most visual elements were created using Google's Material UI with additional custom styling. The form and site are fully-functional,
-though there is room for improvement, particularly in styling (responsive, additional UI feedback) and site structure. 
+Even though I recently created a very similar CRUD application using Express/Node as the backend, I decided to challenge myself by learning enough Go to complete the project. Most visual elements were created using Google's Material UI with additional custom styling.
+
+### Live Preview
+[https://main--splendid-dango-2fe042.netlify.app/](https://main--splendid-dango-2fe042.netlify.app/)
 
 ## Installing and Running
+
+## Environment setup
+
+You need to have [Go](https://golang.org/) and [Node.js](https://nodejs.org/) installed on your computer.
+
+Verify the tools by running the following commands:
+
+```sh
+go version
+npm --version
+```  
+
+## Starting the application
+
+#### The Go server relies on the following dependencies:
+  "github.com/gin-gonic/gin"
+  cors "github.com/rs/cors/wrapper/gin"
+
+From root, navigate to the `server` folder and start the back end:
+
+```sh
+cd server
+go get "github.com/gin-gonic/gin" cors "github.com/rs/cors/wrapper/gin"
+go run server.go
+```
+The back end will serve on http://localhost:8080.
 
 #### The React client contains the following dependencies:    
 
@@ -25,19 +52,18 @@ react: ^18.2.0
 react-dom: ^18.2.0    
 react-router-dom: ^6.3.0    
 react-scripts: ^5.0.1    
-swr: ^1.3.0    
+swr: ^1.3.0  
 
-#### The Go server relies on the following dependencies:
-  "github.com/gin-gonic/gin"
-  cors "github.com/rs/cors/wrapper/gin"
+From root, navigate to the `webapp` folder and start the front end:
 
-#### To install:
-Using the command line, from the `server` folder, install via `go get "github.com/gin-gonic/gin" cors "github.com/rs/cors/wrapper/gin"`
-Using the command line, from the `client` folder, install via `npm i @cloudinary/react @cloudinary/url-gen @emotion/react @emotion/styled @mui/icons-material @mui/material @mui/x-data-grid @mui/x-date-pickers axios date-fns react react-dom react-router-dom react-scripts swr`  
-
-#### To run the server:
-Using the command line, from the `server` folder, run via `go run *.go`.
-Using the command line, from the `client` folder, run via `npm start`
+```sh
+cd webapp
+npm install
+npm i @cloudinary/react @cloudinary/url-gen @emotion/react @emotion/styled @mui/icons-material @mui/material @mui/x-data-grid @mui/x-date-pickers axios date-fns react react-dom react-router-dom react-scripts swr
+npm start
+```
+The application will be available on http://localhost:3000.
+ 
 
 ### The Form
 The form was styled using Google's Material UI. This promises a clean UI that will look good on any platform and establishes a uniform style. 
