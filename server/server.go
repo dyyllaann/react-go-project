@@ -81,14 +81,9 @@ var patients = []patient{
 
 func main() {
     router := gin.Default()
-    // CORS for https://foo.com and https://github.com origins, allowing:
-    // - PUT and PATCH methods
-    // - Origin header
-    // - Credentials share
-    // - Preflight requests cached for 12 hours
     router.Use(cors.New(cors.Config{
-        AllowOrigins:     []string{"*"},
-        AllowMethods:     []string{"GET", "POST", "PUT", "PATCH"},
+        AllowOrigins:     []string{"https://main--splendid-dango-2fe042.netlify.app/*", "https://main--gilded-lokum-4a72fc.netlify.app/admin", "*"},
+        AllowMethods:     []string{"GET", "POST"},
         AllowHeaders:     []string{"Origin", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "accept", "origin", "Cache-Control", "X-Requested-With"},
         ExposeHeaders:    []string{"Content-Length", "*"},
         AllowCredentials: true,
