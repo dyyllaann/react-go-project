@@ -33,7 +33,7 @@ function createData(
 export default function DataTable() {
 	// Fetch data
 	const fetcher = (url) =>
-		fetch(`${ENDPOINT}/${url}`).then((res) => res.json());
+		fetch(`${ENDPOINT}/${url}/`).then((res) => res.json());
 	const { data } = useSWR("patients", fetcher);
 
 	// Map patient data to array
