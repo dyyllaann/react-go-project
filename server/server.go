@@ -83,7 +83,7 @@ func main() {
     router := gin.Default()
     router.Use(cors.New(cors.Config{
         AllowOrigins:     []string{"https://main--splendid-dango-2fe042.netlify.app/", "http://localhost:8080/", "https://main--splendid-dango-2fe042.netlify.app/admin/", "*"},
-        AllowMethods:     []string{"GET", "POST"},
+        AllowMethods:     []string{"GET", "POST", "OPTIONS"},
         AllowHeaders:     []string{"Origin", "XMLHttpRequest", "Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "accept", "origin", "Cache-Control", "X-Requested-With"},
         ExposeHeaders:    []string{"Content-Length", "*"},
         AllowCredentials: false,
