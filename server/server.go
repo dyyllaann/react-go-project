@@ -82,13 +82,13 @@ var patients = []patient{
 func main() {
     router := gin.Default()
     router.Use(cors.New(cors.Config{
-        AllowOrigins:     []string{"https://62defa52f3b5ed140059e48b--splendid-dango-2fe042.netlify.app/admin"},
+        AllowOrigins:     []string{"https://splendid-dango-2fe042.netlify.app"},
         AllowMethods:     []string{"GET", "POST", "OPTIONS"},
         AllowHeaders:     []string{"Origin"},
         // ExposeHeaders:    []string{"*"},
         AllowCredentials: false,
         AllowOriginFunc: func(origin string) bool {
-            return origin == "https://62defa52f3b5ed140059e48b--splendid-dango-2fe042.netlify.app/admin"
+            return origin == "https://splendid-dango-2fe042.netlify.app"
         },
     }))
 
