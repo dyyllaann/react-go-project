@@ -6,7 +6,7 @@
 Even though I recently created a very similar CRUD application using Express/Node as the backend, I decided to challenge myself by learning enough Go to complete the project. Most visual elements were created using Google's Material UI with additional custom styling.
 
 ### Live Preview
-[https://main--splendid-dango-2fe042.netlify.app/](https://main--splendid-dango-2fe042.netlify.app/)
+[https://splendid-dango-2fe042.netlify.app/](https://splendid-dango-2fe042.netlify.app/)
 
 ## Installing and Running
 
